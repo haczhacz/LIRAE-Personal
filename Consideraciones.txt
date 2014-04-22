@@ -1,0 +1,53 @@
+Realizado sobre Ubuntu 13.10, 64 bits
+
+------------ INSTALACION ------------
+Hacerlo tal cual hasta antes del git init
+
+
+------------ CONFIGURACION DACHS ------------
+
+Abrir archivo /etc/gavo.rc con 
+
+	sudo nano /etc/gavo.rc
+
+Agregar (entre otras cosas) la linea:
+
+	rootDir: [RUTA]/LIRAE-DaCHS
+
+-! En mi caso utilice las mismas carpetas que genera la instalacion de gavo. 
+Especificamente utilice RUTA = /home/gavo/LIRAE
+
+-! /LIRAE-DaCHS es la carpeta que se genera con la clonacion del repositorio LIRAE-DaCHS 
+
+
+
+
+------------ CLONAR REPOSITORIO LIRAE-DaCHS ------------
+
+
+Clonar dentro de RUTA con
+	git clone https://github.com/paramire/LIRAE-DaCHS.git
+
+
+-! Ojo con los permisos de para acceso a las carpetas. Usar
+	sudo chown `id -nu`:gavo -R [RUTA]
+(-R da acceso a todas las carpetas y archivos dentro de RUTA)
+
+
+
+Tras esto hacer el gavo init
+
+
+------------ MANEJO DE LAS TABLAS ------------
+
+
+verificar si hay errores en el rd
+	gavo val [nombre_carpeta|nombre_schema]/[nombre_del_.rd]
+-! no importa si no se esta presente en la carpeta misma al momento de ejecutar esta accion
+
+luego importar
+	gavo imp [nombre_carpeta|nombre_schema]/[nombre_del_.rd]
+
+
+
+
